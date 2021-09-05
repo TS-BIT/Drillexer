@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 
 
 template: `
+
+<app-header></app-header>
+
 <p>Hello world!</p>
 <p>['Jonas', 'Petras', 'Liudas']</p>
 
