@@ -50,7 +50,9 @@ template: `
 
 <h4>Let print a table</h4>
 
-<table class="table" *ngIf="products.length !==0">
+<!-- <table class="table" *ngIf="products.length !==0"> -->
+<table *ngIf="products.length > 0; else noProductsWarning" class="table" >
+
 <tr>
   <th>Title</th>
   <th>Count</th>
@@ -69,6 +71,11 @@ template: `
 </tbody>
 
 </table>
+
+<ng-template #noProductsWarning>
+      <p class="alert alert-warning">No data!</p>
+      </ng-template>
+
 
 </div>
 
@@ -121,10 +128,10 @@ showMessage () {
   this.isMessageShow = !this.isMessageShow;
 }
 
-products = [
-{ title: "Adidas", count: 150, pricePerUnitInDollars: 150.79, currency: "USD"},
-{ title: "Puma", count: 200 , pricePerUnitInDollars: 150.69, currency: "EUR"},
-{ title: "Nike", count: 180, pricePerUnitInDollars: 150.49, currency: "EUR"}
+products: any[] = [
+// { title: "Adidas", count: 150, pricePerUnitInDollars: 150.79, currency: "USD"},
+// { title: "Puma", count: 200 , pricePerUnitInDollars: 150.69, currency: "EUR"},
+// { title: "Nike", count: 180, pricePerUnitInDollars: 150.49, currency: "EUR"}
 ]
 
 
