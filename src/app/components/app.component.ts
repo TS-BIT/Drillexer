@@ -52,7 +52,9 @@ template: `
 <br>
 
 <label>Filter:</label>
-<input type="text" (input)="onFilter($any($event.target).value)">
+<!-- <input type="text" (input)="onFilter($any($event.target).value)"> -->
+<input type="text" (input)="onFilter($event)">
+
 <h4>Let's print a table</h4>
 
 
@@ -68,7 +70,7 @@ template: `
 </tr>
 
 <tbody>
-<tr *ngFor="let product of products">
+<tr *ngFor="let product of filteredProducts">
 
 <td>{{ product.title | lowercase }}</td>
 <td>{{ product.count }}</td>
@@ -137,9 +139,9 @@ showMessage () {
 }
 
 products: Product[] = [
-  { title: `Adidas`, count: 150, pricePerUnitInDollars: 150.79, currency: "USD"},
-  { title: `Puma`, count: 200 , pricePerUnitInDollars: 150.69, currency: "EUR"},
-  { title: `Nike`, count: 180, pricePerUnitInDollars: 150.49, currency: "EUR"},
+  {title: `Adidas`, count: 150, pricePerUnitInDollars: 150.79, currency: "USD"},
+  {title: `Puma`, count: 200 , pricePerUnitInDollars: 150.69, currency: "EUR"},
+  {title: `Nike`, count: 180, pricePerUnitInDollars: 150.49, currency: "EUR"},
   {title: `Camel`, count: 180, pricePerUnitInDollars: 150.29, currency: "EUR"},
   {title: `Karimor`, count: 109, pricePerUnitInDollars: 109.29, currency: "EUR"},
   {title: `Kangaroos`, count: 99, pricePerUnitInDollars: 99.29, currency: "EUR"}
@@ -149,8 +151,8 @@ products: Product[] = [
 filteredProducts = this.products;
 
 onFilter($event: any) {
-  let s = $event.target.value.toLocaleLowerCase()
-  this.filteredProducts = this.products.filter(p => p.title.toLocaleLowerCase().indexOf($event.target.value) != -1);
+  let s = $event.target.value.toLocaleLowerCase();
+  this.filteredProducts = this.products.filter(p => p.title.toLocaleLowerCase().indexOf(s) != -1);
 
 }
 
