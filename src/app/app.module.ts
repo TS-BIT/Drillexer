@@ -6,6 +6,10 @@ import { AppComponent } from './components/app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ConvertToPipe } from './pipes/convert-to.pipe';
 import { PipesConvertToSpacePipe } from './pipes/pipes-convert-to-space.pipe';
+import { RouterModule } from '@angular/router';
+import { ProductComponent } from './components/product/product.component';
+import { AboutComponent } from './components/about/about.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -14,10 +18,17 @@ import { PipesConvertToSpacePipe } from './pipes/pipes-convert-to-space.pipe';
     HeaderComponent,
     ConvertToPipe,
     PipesConvertToSpacePipe,
+    ProductComponent,
+    AboutComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      { path: 'ábout', component: AboutComponent },
+      { path: '**', component: AboutComponent }
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
