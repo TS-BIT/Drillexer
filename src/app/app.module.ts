@@ -26,7 +26,7 @@ import { HomeComponent } from './components/home/home.component';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: 'ábout', component: AboutComponent },
+      { path: 'about', component: AboutComponent },
       { path: '**', component: AboutComponent }
     ]),
   ],
