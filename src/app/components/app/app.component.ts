@@ -1,3 +1,4 @@
+import { ProductComponent } from './../product/product.component';
 import { AfterViewInit, Component, ViewChild, ElementRef } from '@angular/core';
 import { Product } from './../models/product';
 
@@ -38,7 +39,58 @@ template: `
 
 <hr />
 
-<div>
+
+<!-- <div class="calculator">
+
+  <input type="text" class="calculator-screen" [value]="currentNumber" disabled />
+
+  <div class="calculator-keys">
+
+
+
+    <button type="button" (click) = "getNumber('7')" value="7">7</button>
+    <button type="button" (click) = "getNumber('8')" value="8">8</button>
+    <button type="button" (click) = "getNumber('9')" value="9">9</button>
+
+
+    <button type="button" (click) = "getNumber('4')" value="4">4</button>
+    <button type="button" (click) = "getNumber('5')" value="5">5</button>
+    <button type="button" (click) = "getNumber('6')" value="6">6</button>
+
+
+    <button type="button" (click) = "getNumber('1')" value="1">1</button>
+    <button type="button" (click) = "getNumber('2')" value="2">2</button>
+    <button type="button" (click) = "getNumber('3')" value="3">3</button>
+
+
+    <button type="button" (click) = "getNumber('0')" value="0">0</button>
+
+  </div>
+</div>
+
+<div class="calculator-keys">
+
+    <button type="button" (click) = "getOperation('+')" class="operator" value="+">+</button>
+    <button type="button" (click) = "getOperation('-')" class="operator" value="-">-</button>
+    <button type="button" (click) = "getOperation('*')" class="operator" value="*">&times;</button>
+    <button type="button" (click) = "getOperation('/')" class="operator" value="/">&divide;</button>
+
+       <button type="button" (click) = "getDecimal()" class="decimal" value=".">.</button>
+    <button type="button" (click) = "clear()"  class="all-clear" value="all-clear">AC</button>
+
+    <button type="button" (click) = "getOperation('=')" class="equal-sign" value="=">=</button>
+
+  </div> -->
+
+
+
+
+<hr />
+
+
+
+
+
 <h2>DIRECTIVES</h2>
 
 <hr>
@@ -87,7 +139,7 @@ template: `
       </ng-template>
 
 
-</div>
+
 
 <hr />
 <!-- Dvikryptis
@@ -99,6 +151,10 @@ template: `
 <!-- 2 vienkrypciai
 <input (input)='userInput($event)' [value]='text'>
 <p>{{ text }}</p> -->
+
+
+
+
 
 `,
 
@@ -169,5 +225,71 @@ onFilter($event: any) {
   // mouseMoveHandler($mouseEvent)
   // this.mouseX$event
   // this.mouse.Y$event
+
+
+  // export class CalculatorComponent implements OnInit {
+
+  //   currentNumber = '0';
+  //   firstOperand = null;
+  //   operator = null;
+  //   waitForSecondNumber = false;
+
+  //   public getNumber(v: string){
+  //       console.log(v);
+  //       if(this.waitForSecondNumber)
+  //       {
+  //         this.currentNumber = v;
+  //         this.waitForSecondNumber = false;
+  //       }else{
+  //         this.currentNumber === '0'? this.currentNumber = v: this.currentNumber += v;
+
+
+  //         getDecimal(){
+  //       if(!this.currentNumber.includes('.')){
+  //           this.currentNumber += '.';
+  //       }
+  //     }
+
+  //     private doCalculation(op , secondOp){
+  //       switch (op){
+  //         case '+':
+  //         return this.firstOperand += secondOp;
+  //         case '-':
+  //         return this.firstOperand -= secondOp;
+  //         case '*':
+  //         return this.firstOperand *= secondOp;
+  //         case '/':
+  //         return this.firstOperand /= secondOp;
+  //         case '=':
+  //         return secondOp;
+  //       }
+  //     }
+
+  //     public getOperation(op: string){
+  //       console.log(op);
+
+  //       if(this.firstOperand === null){
+  //         this.firstOperand = Number(this.currentNumber);
+
+  //       }else if(this.operator){
+  //         const result = this.doCalculation(this.operator , Number(this.currentNumber))
+  //         this.currentNumber = String(result);
+  //         this.firstOperand = result;
+  //       }
+  //       this.operator = op;
+  //       this.waitForSecondNumber = true;
+
+  //       console.log(this.firstOperand);
+
+  //     }
+  //     public clear(){
+  //       this.currentNumber = '0';
+  //       this.firstOperand = null;
+  //       this.operator = null;
+  //       this.waitForSecondNumber = false;
+  //     }
+
+
+
 
 }
